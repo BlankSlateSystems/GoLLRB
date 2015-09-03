@@ -5,7 +5,7 @@ import (
 	"github.com/blankslatesystems/GoLLRB/llrb"
 )
 
-func Print(item llrb.Item) bool {
+func Print1(item llrb.Item) bool {
 	i, ok := item.(llrb.Int)
 	if !ok {
 		return false
@@ -14,13 +14,13 @@ func Print(item llrb.Item) bool {
 	return true
 }
 
-func main() {
-	tree := llrb.New()
-	tree.ReplaceOrInsert(llrb.Int(1))
-	tree.ReplaceOrInsert(llrb.Int(2))
-	tree.ReplaceOrInsert(llrb.Int(3))
-	tree.ReplaceOrInsert(llrb.Int(4))
-	tree.DeleteMin()
-	tree.Delete(llrb.Int(4))
-	tree.AscendGreaterOrEqual(tree.Min(), Print)
-}
+// func main() {
+// 	tree := llrb.New(llrb.NaturalSortLessInt)
+// 	tree.ReplaceOrInsert(llrb.Int(1))
+// 	tree.ReplaceOrInsert(llrb.Int(2))
+// 	tree.ReplaceOrInsert(llrb.Int(3))
+// 	tree.ReplaceOrInsert(llrb.Int(4))
+// 	tree.DeleteMin()
+// 	tree.Delete(llrb.Int(4))
+// 	tree.AscendGreaterOrEqual(tree.Min(), Print1)
+// }

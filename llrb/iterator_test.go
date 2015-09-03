@@ -6,7 +6,7 @@ import (
 )
 
 func TestAscendGreaterOrEqual(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	tree.InsertNoReplace(Int(4))
 	tree.InsertNoReplace(Int(6))
 	tree.InsertNoReplace(Int(1))
@@ -41,7 +41,7 @@ func TestAscendGreaterOrEqual(t *testing.T) {
 }
 
 func TestDescendLessOrEqual(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	tree.InsertNoReplace(Int(4))
 	tree.InsertNoReplace(Int(6))
 	tree.InsertNoReplace(Int(1))

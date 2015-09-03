@@ -13,11 +13,11 @@ func (t *LLRB) getHeight(h *Node, item Item) (Item, int) {
 	if h == nil {
 		return nil, 0
 	}
-	if less(item, h.Item) {
+	if less(t.comp, item, h.Item) {
 		result, depth := t.getHeight(h.Left, item)
 		return result, depth + 1
 	}
-	if less(h.Item, item) {
+	if less(t.comp, h.Item, item) {
 		result, depth := t.getHeight(h.Right, item)
 		return result, depth + 1
 	}

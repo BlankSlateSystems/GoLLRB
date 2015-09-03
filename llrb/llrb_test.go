@@ -11,7 +11,7 @@ import (
 )
 
 func TestCases(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	tree.ReplaceOrInsert(Int(1))
 	tree.ReplaceOrInsert(Int(1))
 	if tree.Len() != 1 {
@@ -39,7 +39,7 @@ func TestCases(t *testing.T) {
 }
 
 func TestReverseInsertOrder(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 100
 	for i := 0; i < n; i++ {
 		tree.ReplaceOrInsert(Int(n - i))
@@ -55,7 +55,7 @@ func TestReverseInsertOrder(t *testing.T) {
 }
 
 func TestRange(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessString)
 	order := []String{
 		"ab", "aba", "abc", "a", "aa", "aaa", "b", "a-", "a!",
 	}
@@ -78,7 +78,7 @@ func TestRange(t *testing.T) {
 }
 
 func TestRandomInsertOrder(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 1000
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -95,7 +95,7 @@ func TestRandomInsertOrder(t *testing.T) {
 }
 
 func TestRandomReplace(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 100
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -110,7 +110,7 @@ func TestRandomReplace(t *testing.T) {
 }
 
 func TestRandomInsertSequentialDelete(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 1000
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -122,7 +122,7 @@ func TestRandomInsertSequentialDelete(t *testing.T) {
 }
 
 func TestRandomInsertDeleteNonExistent(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 100
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -148,7 +148,7 @@ func TestRandomInsertDeleteNonExistent(t *testing.T) {
 }
 
 func TestRandomInsertPartialDeleteOrder(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 100
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -175,7 +175,7 @@ func TestRandomInsertPartialDeleteOrder(t *testing.T) {
 }
 
 func TestRandomInsertStats(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 100000
 	perm := rand.Perm(n)
 	for i := 0; i < n; i++ {
@@ -189,7 +189,7 @@ func TestRandomInsertStats(t *testing.T) {
 }
 
 func BenchmarkInsert(b *testing.B) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	for i := 0; i < b.N; i++ {
 		tree.ReplaceOrInsert(Int(b.N - i))
 	}
@@ -197,7 +197,7 @@ func BenchmarkInsert(b *testing.B) {
 
 func BenchmarkDelete(b *testing.B) {
 	b.StopTimer()
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	for i := 0; i < b.N; i++ {
 		tree.ReplaceOrInsert(Int(b.N - i))
 	}
@@ -209,7 +209,7 @@ func BenchmarkDelete(b *testing.B) {
 
 func BenchmarkDeleteMin(b *testing.B) {
 	b.StopTimer()
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	for i := 0; i < b.N; i++ {
 		tree.ReplaceOrInsert(Int(b.N - i))
 	}
@@ -220,7 +220,7 @@ func BenchmarkDeleteMin(b *testing.B) {
 }
 
 func TestInsertNoReplace(t *testing.T) {
-	tree := New()
+	tree := New(NaturalSortLessInt)
 	n := 1000
 	for q := 0; q < 2; q++ {
 		perm := rand.Perm(n)
